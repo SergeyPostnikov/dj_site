@@ -114,6 +114,9 @@ USE_I18N = True
 USE_TZ = True
 
 
+#User 
+AUTH_USER_MODEL = 'task_master.CustomUser'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 

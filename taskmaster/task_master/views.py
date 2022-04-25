@@ -8,7 +8,7 @@ from .permissions import *
 
 from .serializers import TodoSerializer, UserSerializer
 
-from .models import Todo
+from .models import Todo, CustomUser
 # Create your views here.
 
 class TodoViewSet(viewsets.ModelViewSet):
@@ -19,13 +19,13 @@ class TodoViewSet(viewsets.ModelViewSet):
 	def list(self, request):
 		if isinstance(request.user, AnonymousUser):
 			self.queryset = Todo.objects.filter(private=False)
+		# elif request.user
 		return super().list(self, request)
 
 			
 
-
 class UserViewSet(viewsets.ModelViewSet):
-	queryset = User.objects.all()
+	queryset = CustomUser.objects.all()
 	serializer_class = UserSerializer
 
 
